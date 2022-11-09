@@ -2,19 +2,21 @@
 #include <chrono>
 #include <cstdlib>
 
+//Aufgabe 1
 void collatz(int n){
     //requested output bec cool
     std::cout << "Collatz with " << n << ":" << std::endl;
     //abortion conditions
     while((n != 1) && (n != 0) && (n != -1) && (n != -5) && (n != -17)){
-        //the algorithm things
+        //if the number is even, divide by 2
         if (n % 2 == 0){
             n = n/2;
         } else{
+        //if the number is uneven, multiply with 3 and add 1
             n = 3*n+1;
         }
     }
-    std::cout << "Result: " << n << std::endl; //defenetly not result number
+    std::cout << "Result: " << n << std::endl; //defenetly not result number -_- 
 }
 /*
 Only 0 follows 0, 
@@ -49,8 +51,9 @@ int fib(int n, bool show){
         }
         }
     }
-    //endpoint and output time
+    //endpoint time 
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+    //calculate time needed for the program as a difference between end and begin timepoints 
     std::cout << "calc time = " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count() << "[ns]" << std::endl;
     return f_new;
 
@@ -72,6 +75,7 @@ int iterative(int q,int n){
         }
     return q_next;
     } else {
+    //for q^0 = 1
         return 1;
     }
 }
@@ -85,6 +89,7 @@ int recursive(int q, int n){
 }
 
 int better(int q, int n){
+    //use exponentiation by squaring method to optimize program time
     int m = recursive(q, n/2);
     if (n % 2 == 0){ //even, (q^n)^2=q^2n
         return m*m;
@@ -95,6 +100,7 @@ int better(int q, int n){
     //4^4: 758|556|432[ns]
     //2^15: 1087|1087|638[ns]
 
+//additional function to check if the input for each function from listed above is valid and to run the function
 int exe(int ex){ //exercises 1-3 (written to be "pretty"(output) not efficient)
     int num;
     int num2;
