@@ -12,7 +12,7 @@ void collatz(int n){
         if (n % 2 == 0){
             n = n/2;
         } else{
-        //if the number is uneven, multiply with 3 and add 1
+        //if the number is odd, multiply with 3 and add 1
             n = 3*n+1;
         }
     }
@@ -25,6 +25,7 @@ Only 0 follows 0,
 All positive numbers end in 1,
     to be exact, they all end in a periodic 4,2,1 cycle. negative num never reach 1,
     because dividing by 2 does not change sign and 1 = -3n+1 && n>0 <=> -3n=0 <=> n=0 but n>0
+    So all numbers leading to 1 have in common that they are positive and don't prove the Collatz conjecture wrong, sadly :(
 */
 
 int fib(int n, bool show){
@@ -57,7 +58,10 @@ int fib(int n, bool show){
     std::cout << "calc time = " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count() << "[ns]" << std::endl;
     return f_new;
 
-    //idk but its fast from the beginning. 40 runs 1252ns,60 runs 1526ns and 100 runs 3141ns
+    /*
+    idk but its fast from the beginning. 40 runs 1252ns,60 runs 1526ns and 100 runs 3141ns
+    would've been much slower if we had used a recursive implementation as this would lead to lots of unnecessary calculation
+    */
 }
 
 void fibonacci(int n){
