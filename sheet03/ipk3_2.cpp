@@ -3,11 +3,11 @@
 #include <math.h>
 #include <algorithm> //this for subtask e) :OOO O: :OOO OOO: no way
 
-void print(std::string s){
+void print(const std::string& s){
     std::cout << s << std::endl;
 }
 
-void print_vec(std::vector<double> v){
+void print_vec(const std::vector<double>& v){
     int size = v.size();
     if (size == 0){print("no elements");}
     else {
@@ -20,7 +20,7 @@ void print_vec(std::vector<double> v){
     }
 }
 
-std::vector<double> pair(std::vector<double> v){
+std::vector<double> pair(const std::vector<double>& v){
     int size = v.size();
     double max = 0;
     double min = 0; //init return vals
@@ -45,7 +45,7 @@ std::vector<double> reversed(const std::vector<double>& v){
     return v_rev;
 }
 
-std::vector<double> vec_round(std::vector<double> v){
+std::vector<double> vec_round(std::vector<double>& v){
     int size = v.size();
     for (int i = 0; i < size-1; i++){
         v[i] = std::round(v[i]); //rounds every elem of vector
@@ -53,7 +53,7 @@ std::vector<double> vec_round(std::vector<double> v){
     return v;
 }
 
-std::vector<double> reversed2(std::vector<double> v){ //i accidentally did it like this before sooo, well, copied & del const pepega
+std::vector<double> reversed2(std::vector<double>& v){ //i accidentally did it like this before sooo, well, copied & del const pepega
     int size = v.size();
     for (int i = 0; i < std::floor(size/2); i++){
         //iterates through half the vectors size, if uneven (2n+1) round to 2n (floor, round down)
@@ -72,7 +72,6 @@ void ex(char a){ //method for subtask
     std::vector<double> va{24,40,-13.04,-13.01,43,0,100};
 
     if (a == 'a'){
-        print(std::to_string(v3.size()));
         print_vec(v1);
         print("^ unassigned");
         print_vec(v2);
