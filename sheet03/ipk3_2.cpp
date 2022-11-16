@@ -6,7 +6,7 @@
 void print(const std::string& s){
     std::cout << s << std::endl;
 }
-
+//------a------
 void print_vec(const std::vector<double>& v){
     int size = v.size();
     if (size == 0){print("no elements");}
@@ -19,7 +19,7 @@ void print_vec(const std::vector<double>& v){
         std::cout << k << std::endl;
     }
 }
-
+//------b------
 std::vector<double> pair(const std::vector<double>& v){
     int size = v.size();
     double max = 0;
@@ -34,7 +34,7 @@ std::vector<double> pair(const std::vector<double>& v){
     }
     return {min,max}; //return as vector to print
 }
-
+//------c------
 std::vector<double> reversed(const std::vector<double>& v){
     std::vector<double> v_rev = v;
     int size = v.size();
@@ -44,7 +44,7 @@ std::vector<double> reversed(const std::vector<double>& v){
     }
     return v_rev;
 }
-
+//------d------
 std::vector<double> vec_round(std::vector<double>& v){
     int size = v.size();
     for (int i = 0; i < size-1; i++){
@@ -52,7 +52,7 @@ std::vector<double> vec_round(std::vector<double>& v){
     }
     return v;
 }
-
+//------e------
 std::vector<double> reversed2(std::vector<double>& v){ //i accidentally did it like this before sooo, well, copied & del const pepega
     int size = v.size();
     for (int i = 0; i < std::floor(size/2); i++){
@@ -63,7 +63,7 @@ std::vector<double> reversed2(std::vector<double>& v){ //i accidentally did it l
 }
 
 
-void ex(char a){ //method for subtask
+void ex(char a){ //method for subtasks (usable as main but easier to chance subtask)
     //vector examples
     std::vector<double> v1;
     std::vector<double> v2(10);
@@ -111,6 +111,6 @@ void ex(char a){ //method for subtask
 }
 
 int main(int argc, char** argv){
-    ex('e');
+    ex('e'); // enter prefered subtask a,b,c,d,e
     return 0;
 }
